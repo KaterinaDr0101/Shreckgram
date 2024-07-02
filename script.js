@@ -145,7 +145,7 @@ const tweets = [
         authorName: "Oslik<3",
         authorNickname: "@papaAngelochkov",
         authorImage: "Icon_Osel.jpg",
-        content: "Все слышали? Я благородный рысак... Я жеребец!.."
+        content: "Все слышали? Я благородный рысак... Я жеребец!.. "
     },
 
     {
@@ -154,8 +154,72 @@ const tweets = [
         authorName: "Charming",
         authorNickname: "@PrinceCharrrming",
         authorImage: "Charming.jpg",
-        content: "Все слышали? Я благородный рысак... Я жеребец!..",
-        photoContent: "Photo1.jpg"
+        content: "Я снесу его голову с плеч! Я поражу его на месте! ОН ПОЖАЛЕЕТ О ТОМ САМОМ ДНЕ, КОГДА УКРАЛ У МЕНЯ КОРОЛЕВСТВО!",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "К вашему сведению. Это не моя вина!",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "",
+        photoContent: "Photo1.jpg",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "То, что так сделано, не означает, что так и должно быть сделано. Или что-то в этом роде.",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "",
+        photoContent: "Photo2.jpg",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "",
+        photoContent: "Photo3.jpg",
+
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "",
+        photoContent: "Photo4.jpg",
+
     },
 
    
@@ -253,6 +317,9 @@ function createTweetElement(tweet) {
         const photoContent = document.createElement('div');
         const photo = document.createElement('img');
         photo.src = tweet.photoContent;
+        photo.style.width = "250px"; // Устанавливаем ширину изображения
+        photo.style.height = "250px"; // Устанавливаем высоту изображения
+        photo.style.objectFit = "cover"; // Это поможет изображению сохранить пропорции и заполнить контейнер без искажения
         photoContent.appendChild(photo);
         contentElement.appendChild(photoContent);
     }

@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Consolas', sans-serif;
 }
 
 header {
-    background-color: #7baa58;
+    background-color: rgb(94, 88, 76);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -13,13 +13,14 @@ header {
 }
 
 header .logo a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    font-size: 1.5em;
-    font-family: 'Arial';
+    font-size: 2.0em;
+    font-family: 'Consolas';
 }
 
 nav ul {
+    font-family: 'Consolas', monospace;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -31,14 +32,15 @@ nav ul li {
 }
 
 nav ul li a {
-    color: rgb(0, 0, 0);
-    font-family: 'Consolas';
+    color: rgb(255, 255, 255);
+    font-family: 'Consolase', monospace;
     text-decoration: none;
     padding: 5px 10px;
     transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
+    font-family: 'Consolase', monospace;
     background-color: #555;
     border-radius: 5px;
 }
@@ -46,12 +48,13 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #e7e2d8;
 }
 
 .tweet {
-    background-color: white;
+    background-color: rgb(182, 215, 183);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgb(98, 106, 101);
     padding: 20px;
     display: flex;
     flex-direction: column;
