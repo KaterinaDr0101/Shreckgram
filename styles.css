@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 header {
-    background-color: #acc897;
+    background-color: #7baa58;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -16,6 +16,7 @@ header .logo a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 1.5em;
+    font-family: 'Arial';
 }
 
 nav ul {
@@ -30,7 +31,8 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: 'Consolas';
     text-decoration: none;
     padding: 5px 10px;
     transition: background-color 0.3s ease;

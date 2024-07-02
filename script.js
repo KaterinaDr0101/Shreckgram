@@ -28,7 +28,7 @@ const tweets = [
         authorName: "Shrek_Ogr",
         authorNickname: "@shreksi",
         authorImage: "Мощная_ава.jpg",
-        content: "Кто сказал, что огры не умеют твитить? Размышляю о жизни в болоте и понимаю, что главное – быть собой. #ОгрПравда #ЖизньВБолоте"
+        content: "Не будьте как дома, вам тут официально не рады. Это факт."
     },
     {
         parent: "",
@@ -36,22 +36,133 @@ const tweets = [
         authorName: "Shrek_Ogr",
         authorNickname: "@shreksi",
         authorImage: "Мощная_ава.jpg",
-        content: "Осел опять пытается петь караоке... Уши уже вянут. Пора искать новое место для отдыха. #ОгрЖизнь #ОселНеПой"
+        content: "Может быть, есть веская причина, по которой ослы не должны говорить"
     },
 
-    {
+    /*{
         parent: "@shreksi",
         id: "@shreksi_@Oslik<3_1",
         authorName: "Oslik<3",
         authorNickname: "@papaAngelochkov",
         authorImage: "Icon_Osel.jpg",
-        content: " Эй, @shreksi! Просто завидуешь моим вокальным талантам! Могу дать пару уроков, если захочешь."
+        content: " Грубиян"
+    },*/
+
+    {
+        parent: "",
+        id: "@shreksi_1",
+        authorName: "Shrek_Ogr",
+        authorNickname: "@shreksi",
+        authorImage: "Мощная_ава.jpg",
+        content: "Живу на болоте. Натыкал табличек. Я огромный и злобный. Этого мало, чтобы добиться уединения?!",
+        photoContent: ""
+    },
+
+    {
+        parent: "",
+        id: "@shreksi_1",
+        authorName: "Shrek_Ogr",
+        authorNickname: "@shreksi",
+        authorImage: "Мощная_ава.jpg",
+        content: "Людоеды — они как лук"
+    },
+
+    {
+        parent: "",
+        id: "@shreksi_1",
+        authorName: "Shrek_Ogr",
+        authorNickname: "@shreksi",
+        authorImage: "Мощная_ава.jpg",
+        content: "Когда-нибудь я отплачу тебе тем же. Если, конечно, смогу тебя найти… или не забуду"
     },
     
+    {
+        parent: "",
+        id: "@shreksi_1",
+        authorName: "Shrek_Ogr",
+        authorNickname: "@shreksi",
+        authorImage: "Мощная_ава.jpg",
+        content: "Мне нравится мое уединение"
+    },
+
+    {
+        parent: "",
+        id: "@shreksi_1",
+        authorName: "Shrek_Ogr",
+        authorNickname: "@shreksi",
+        authorImage: "Мощная_ава.jpg",
+        content: "Работаешь упорно или упорно не работаешь?"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "В некоторых культурах ослов почитают как самых умных животных"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Белый цветок на красной ножке. Белый цветок на красной ножке. Белый на красном. Все было бы намного проще, если бы я не был дальтоником! Белый красном"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Извините, место назойливого говорящего животного уже занято"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Прежде чем это закончится, мне понадобится серьезная терапия. У меня дергается глаз"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Ненавижу, когда кто-то маячит у тебя перед носом, ты пытаешься намекнуть, а он не уходит, и тогда наступает неловкое молчание, понимаешь?"
+    },
+
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Все слышали? Я благородный рысак... Я жеребец!.."
+    },
+
+    {
+        parent: "",
+        id: "@PrinceCharrrming",
+        authorName: "Charming",
+        authorNickname: "@PrinceCharrrming",
+        authorImage: "Charming.jpg",
+        content: "Все слышали? Я благородный рысак... Я жеребец!..",
+        photoContent: "Photo1.jpg"
+    },
+
+   
 ];
 
-//шрек = 0 осел = 1 
-var currentPageIndexGlobal = 0;
+//шрек = 0 осел = 1 charming = 2
+var currentPageIndexGlobal = 2;
 
 function AddReply(){
 
@@ -64,8 +175,49 @@ function GetAuthorNicknameBy(currentPageIndex){
     else if (currentPageIndex == 1){
         return '@papaAngelochkov';
     }
+    else if (currentPageIndex == 2){
+        return '@PrinceCharrrming';
+    }
     return 'undefined';
 }
+
+function GetPageIndexByAuthorNickname(authorNickname){
+    if (authorNickname == '@shreksi'){
+        return 0;
+    }
+    else if (authorNickname == '@papaAngelochkov'){
+        return 1;
+    }
+    else if (authorNickname == '@PrinceCharrrming'){
+        return 2;
+    }
+    return -1;
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const registerButton = document.getElementById('registerButton');
+
+    registerButton.onclick = function() {        
+        window.location.href = 'file:///C:/Users/user/Desktop/Shreckgramm/reg_form.html';        
+    };
+
+    const searchButton = document.getElementById('searchButton');
+    searchButton.onclick = function(){        
+        const value = document.getElementById('searchInput').value;
+        const index = GetPageIndexByAuthorNickname(value);
+        if (index !== -1){      
+            
+            currentPageIndexGlobal = index;
+            var tweetList = document.getElementById('tweetList');
+            tweetList.innerHTML = '';
+            renderTweets(tweets);
+        }
+        else{
+            alert('page is not found');
+        }
+    };
+
+});
 
 function createTweetElement(tweet) {
     const tweetElement = document.createElement('div');
@@ -97,6 +249,14 @@ function createTweetElement(tweet) {
     contentElement.classList.add('tweet-content');
     contentElement.textContent = tweet.content;
 
+    if (tweet.photoContent){        
+        const photoContent = document.createElement('div');
+        const photo = document.createElement('img');
+        photo.src = tweet.photoContent;
+        photoContent.appendChild(photo);
+        contentElement.appendChild(photoContent);
+    }
+
     tweetElement.appendChild(authorElement);
     tweetElement.appendChild(contentElement);
 
@@ -126,4 +286,4 @@ function GetTweetById(tweets, tweetId){
     return tweets.find(tweet => tweet.id === tweetId);
 }
 
-tweetObjectList[1].AddReply(new Tweet(GetTweetById(tweets, "@shreksi_@Oslik<3_1")));
+tweetObjectList[1].AddReply(new Tweet(GetTweetById(tweets, "@shreksi_@Oslik<3_1"))); //шаблон создания подтвитов

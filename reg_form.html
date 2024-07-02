@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Форма обратной связи</title>
+</head>
+<body>
+  <h1>Форма обратной связи</h1>
+
+  <form id="feedbackForm" onsubmit="return validateForm()">
+    Ваше имя: <input type="text" name="name" ><br><br>
+    Пароль: <input type="password" name="password"  minlength="5"><br><br>
+    Подтверждение пароля: <input type="password" name="confirmPassword" ><br><br>
+    Электронный адрес: <input type="email" name="email" ><br><br>
+    Тема сообщения: <input type="text" name="subject"><br><br>
+    Сообщение: <textarea name="message"></textarea><br><br>
+    <input type="submit" value="Отправить">
+    <input type="reset" value="Очистить">
+  </form>
+
+  <script language="JavaScript" type="text/JavaScript">
+    function validateForm() {      
+
+      var name = document.forms["feedbackForm"]["name"].value;
+      var password = document.forms["feedbackForm"]["password"].value;
+      var confirmPassword = document.forms["feedbackForm"]["confirmPassword"].value;
+      var email = document.forms["feedbackForm"]["email"].value;
+      var message = document.forms["feedbackForm"]["message"].value;
+
+      if (name == "") {
+        alert("Пожалуйста, введите ваше имя");
+        document.forms["feedbackForm"]["name"].focus();
+        return false;
+      }
+
+      if (password.length < 5) {
+        alert("Пароль должен содержать не менее 5 символов");
+        document.forms["feedbackForm"]["password"].focus();
+        return false;
+      }
+
+      if (password != confirmPassword) {
+        alert("Пароли не совпадают");
+        document.forms["feedbackForm"]["confirmPassword"].focus();
+        return false;
+      }
+
+      if (email.indexOf("@") == -1) {
+        alert("Неверный формат электронного адреса");
+        document.forms["feedbackForm"]["email"].focus();
+        return false;
+      }
+      
+      window.location.href = "file:///C:/Users/user/Desktop/Shreckgramm/user_page.html";
+      return true;
+
+    }
+  </script>
+</body>
+</html>
