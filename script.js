@@ -221,7 +221,7 @@ const tweets = [
         authorName: "Oslik<3",
         authorNickname: "@papaAngelochkov",
         authorImage: "Icon_Osel.jpg",
-        content: "Извините, место назойливого говорящего животного уже занято",
+        content: " ",
         videoContent: "Dulok.MOV"
     },
 
@@ -328,14 +328,10 @@ function createTweetElement(tweet) {
         const videoContent = document.createElement('div');
         const video = document.createElement('video');
         video.src = tweet.videoContent;
-        video.style.width = "280px"; // ширина
-        video.style.height = "220px"; // высота
-        video.style.objectFit = "cover"; // Это поможет сохранить пропорции и заполнить контейнер без искажения
+        video.style.width = "300px"; 
+        video.style.height = "180px";
+        video.style.objectFit = "cover"; 
         video.setAttribute("controls", ""); // Добавляем элементы управления видео (play, pause, etc.)
-        
-        // Если вы хотите, чтобы видео автоматически начиналось воспроизведение при загрузке страницы
-        // Расскомментируйте следующую строку
-        // video.setAttribute("autoplay", "");
         
         videoContent.appendChild(video);
         contentElement.appendChild(videoContent);
