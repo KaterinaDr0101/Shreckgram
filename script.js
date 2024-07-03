@@ -4,23 +4,23 @@ class Tweet {
         this.authorTag = tweet.authorNickname;
         this.authorName = tweet.authorName;
         this.content = tweet.content;
-        // this.date = new Date();
+        
         this._tweetElement = createTweetElement(tweet); //после создания добавить див и класс для сабтвитов(реплайев)
-        this._replyElementList = [];
+        this._replyElementList = [];//массив элементов
     }
   
     GetTweetElement(){
         return this._tweetElement;
     }
 
-    AddReply(tweetReply){
+    /*AddReply(tweetReply){
         this._replyElementList.push(tweetReply);
         this._tweetElement.appendChild(tweetReply.GetTweetElement());
-    }
+    }*/
     
   }
 
-// Пример данных твитов
+//Tweets: 
 const tweets = [
     {
         parent: "",
@@ -39,14 +39,7 @@ const tweets = [
         content: "Может быть, есть веская причина, по которой ослы не должны говорить"
     },
 
-    /*{
-        parent: "@shreksi",
-        id: "@shreksi_@Oslik<3_1",
-        authorName: "Oslik<3",
-        authorNickname: "@papaAngelochkov",
-        authorImage: "Icon_Osel.jpg",
-        content: " Грубиян"
-    },*/
+
 
     {
         parent: "",
@@ -222,15 +215,23 @@ const tweets = [
 
     },
 
+    {
+        parent: "",
+        id: "@Oslik<3_1",
+        authorName: "Oslik<3",
+        authorNickname: "@papaAngelochkov",
+        authorImage: "Icon_Osel.jpg",
+        content: "Извините, место назойливого говорящего животного уже занято",
+        videoContent: "Dulok.MOV"
+    },
+
    
 ];
 
-//шрек = 0 осел = 1 charming = 2
-var currentPageIndexGlobal = 2;
+//Shrek = 0 Donkey = 1 Charming = 2
+var currentPageIndexGlobal = 1;
 
-function AddReply(){
-
-}
+//
 
 function GetAuthorNicknameBy(currentPageIndex){
     if (currentPageIndex == 0){
@@ -261,7 +262,7 @@ function GetPageIndexByAuthorNickname(authorNickname){
 document.addEventListener('DOMContentLoaded', (event) => {
     const registerButton = document.getElementById('registerButton');
 
-    registerButton.onclick = function() {        
+    registerButton.onclick = function() {      //обработчик события  
         window.location.href = 'file:///C:/Users/user/Desktop/Shreckgramm/reg_form.html';        
     };
 
@@ -273,11 +274,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             
             currentPageIndexGlobal = index;
             var tweetList = document.getElementById('tweetList');
-            tweetList.innerHTML = '';
+            tweetList.innerHTML = ''; //содержимое элемента (элементы-потомки, комментарии, текст и т.д.), которое хранится в нём в виде строки
             renderTweets(tweets);
         }
         else{
-            alert('page is not found');
+            alert('page is not founded');
         }
     };
 
@@ -285,7 +286,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function createTweetElement(tweet) {
     const tweetElement = document.createElement('div');
-    tweetElement.classList.add('tweet');
+    tweetElement.classList.add('tweet');//чтобы стилизовать
 
     const authorElement = document.createElement('div');
     authorElement.classList.add('tweet-author');
@@ -293,7 +294,7 @@ function createTweetElement(tweet) {
     const authorImage = document.createElement('img');
     authorImage.src = tweet.authorImage;
     authorImage.alt = 'Фото ${tweet.authorName}';
-    authorElement.appendChild(authorImage);
+    authorElement.appendChild(authorImage); //Изображение автора добавляется в элемент, содержащий информацию об авторе
 
     const authorInfo = document.createElement('div');
 
@@ -317,11 +318,27 @@ function createTweetElement(tweet) {
         const photoContent = document.createElement('div');
         const photo = document.createElement('img');
         photo.src = tweet.photoContent;
-        photo.style.width = "250px"; // Устанавливаем ширину изображения
-        photo.style.height = "250px"; // Устанавливаем высоту изображения
-        photo.style.objectFit = "cover"; // Это поможет изображению сохранить пропорции и заполнить контейнер без искажения
+        photo.style.width = "250px"; // шир
+        photo.style.height = "250px"; // выс
+        photo.style.objectFit = "cover"; // Это поможет сохранить пропорции и заполнить контейнер без искажения
         photoContent.appendChild(photo);
         contentElement.appendChild(photoContent);
+    }
+    if (tweet.videoContent) {
+        const videoContent = document.createElement('div');
+        const video = document.createElement('video');
+        video.src = tweet.videoContent;
+        video.style.width = "280px"; // ширина
+        video.style.height = "220px"; // высота
+        video.style.objectFit = "cover"; // Это поможет сохранить пропорции и заполнить контейнер без искажения
+        video.setAttribute("controls", ""); // Добавляем элементы управления видео (play, pause, etc.)
+        
+        // Если вы хотите, чтобы видео автоматически начиналось воспроизведение при загрузке страницы
+        // Расскомментируйте следующую строку
+        // video.setAttribute("autoplay", "");
+        
+        videoContent.appendChild(video);
+        contentElement.appendChild(videoContent);
     }
 
     tweetElement.appendChild(authorElement);
@@ -353,4 +370,3 @@ function GetTweetById(tweets, tweetId){
     return tweets.find(tweet => tweet.id === tweetId);
 }
 
-tweetObjectList[1].AddReply(new Tweet(GetTweetById(tweets, "@shreksi_@Oslik<3_1"))); //шаблон создания подтвитов

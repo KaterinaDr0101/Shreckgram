@@ -7,7 +7,7 @@ header {
     background-color: rgb(94, 88, 76);
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /*пространство между дочерними элементами контейнера*/
     align-items: center;
     padding: 10px 20px;
 }
@@ -39,11 +39,7 @@ nav ul li a {
     transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover {
-    font-family: 'Consolase', monospace;
-    background-color: #555;
-    border-radius: 5px;
-}
+
 .tweet-list {
     display: flex;
     flex-direction: column;
@@ -53,12 +49,12 @@ nav ul li a:hover {
 
 .tweet {
     background-color: rgb(182, 215, 183);
-    border-radius: 10px;
+    border-radius: 20px; /*закругляшка */
     box-shadow: 0 2px 4px rgb(98, 106, 101);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px;/*промежутки*/
 }
 
 .tweet-author {
